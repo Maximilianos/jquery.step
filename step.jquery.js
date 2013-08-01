@@ -1,5 +1,5 @@
 /*!
- * jQuery Timeout Step Plugin - v 0.3 - 01/06/2013
+ * jQuery Timeout Step Plugin - v 0.6.2 - 01/06/2013
  * by Max G J Panas (m@maxpanas.com), http://maxpanas.com
  *
  * Copyright (c) 2013 Max G J Panas
@@ -23,12 +23,10 @@
 
 jQuery.fn.step = function (stepcallback, timeout) {
 
-    var elements = this.get().reverse();
-
     // equivalent to --> if (!timeout) timeout = 300;
     timeout = timeout || 300;
 
-    (function step(i) {
+    (function step(elements, i) {
 
         var delay = typeof timeout == 'function' ? timeout(i) : parseInt(timeout);
 
@@ -37,10 +35,10 @@ jQuery.fn.step = function (stepcallback, timeout) {
             // pass current element as "this" context
             stepcallback.apply(jQuery(elements[i]), [i, elements]);
 
-            if (i--) step(i);
+            if (i++ < elements.length - 1) step(elements, i);
 
         }, delay);
 
-    }(elements.length));
+    }(this, 0));
 
 };
