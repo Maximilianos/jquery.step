@@ -17,7 +17,7 @@
  *   include the following in your javascript:
  *
  *   $('.fade-in-onload').step(function () {
- *     this.attr('data-step', 1);
+ *     this.attr('data-stepped', 1);
  *   });
  *
  *
