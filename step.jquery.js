@@ -14,8 +14,8 @@
  *
  *   include following in your js:
  *
- *   $('.fade-in-onload').step(function (element) {
- *     element.attr('data-step', 1);
+ *   $('.fade-in-onload').step(function () {
+ *     this.attr('data-step', 1);
  *   });
  *
  *
