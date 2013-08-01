@@ -10,9 +10,11 @@
  * Example Use:
  *
  * Simple -- fade elements in on load:
- *   include fade-in.css (http://github.com/maximilianos/jquery_step/templates/css/fade-in.css)
+ *   give elements you want to manipulate a common class, in this case: 'fade-in-onload'
  *
- *   include following in your js:
+ *   include fade-in.stepjs.css in your stylesheet (http://github.com/maximilianos/jquery_step/templates/fade-in/fade-in.stepjs.css)
+ *
+ *   include the following in your javascript:
  *
  *   $('.fade-in-onload').step(function () {
  *     this.attr('data-step', 1);
