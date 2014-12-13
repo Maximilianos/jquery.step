@@ -49,8 +49,9 @@ A full example of the step function would start from the following:
 $('[data-to-step]').step(
   function (index, elements, delay) {
     var me = $(this);
-    // ... do something with {me}
+    // ... do something with $(this)
   }, function (index, elements) {
+    var delay = 0;
     // ... do something to calculate delay
     return delay; // some number in milliseconds
   }
