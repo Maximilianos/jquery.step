@@ -1,8 +1,8 @@
 /*!
- * jQuery Timeout Step Plugin - v 0.6.2 - 01/06/2013
+ * jQuery Timeout Step Plugin - v 1.0 - 13/12/2014
  * by Max G J Panas (m@maxpanas.com), http://maxpanas.com
  *
- * Copyright (c) 2013 Max G J Panas
+ * Copyright (c) 2014 Max G J Panas
  * Dual licenced under MIT (http://opensource.org/licenses/MIT) and GPL (http://www.gnu.org/licenses/gpl.html) licences
  */
 
@@ -12,35 +12,43 @@
  * Simple -- fade elements in on load:
  *   give elements you want to manipulate a common class, in this case: 'fade-in-onload'
  *
- *   include fade-in.stepjs.css in your stylesheet (http://github.com/maximilianos/jquery_step/templates/fade-in/fade-in.stepjs.css)
+ *   include fade-in.stepjs.css in your stylesheet 
+ *   <http://github.com/maximilianos/jquery.step/templates/fade-in/fade-in.stepjs.css>
  *
  *   include the following in your javascript:
  *
  *   $('.fade-in-onload').step(function () {
- *     this.attr('data-stepped', 1);
- *   });
+ *     $(this).addClass('stepped');
+ *   }, 500);
  *
  *
  */
 
-jQuery.fn.step = function (stepcallback, timeout) {
+(function ($) {
+  "use strict";
+ 
+  $.fn.step = function (stepcallback, timeout) {
 
-    // equivalent to --> if (!timeout) timeout = 300;
-    timeout = timeout || 300;
+      // equivalent to --> if (!timeout) timeout = 300;
+      timeout = timeout || 300;
 
-    (function step(elements, i) {
+      var length = elements.length;
 
-        var delay = typeof timeout == 'function' ? timeout(i) : parseInt(timeout);
+      (function step(index, elements) {
 
-        setTimeout(function () {
+          var delay = typeof timeout == 'function' ? timeout(index, elements) : parseInt(timeout);
 
-            // pass current element as "this" context
-            stepcallback.apply(jQuery(elements[i]), [i, elements]);
+          setTimeout(function () {
 
-            if (i++ < elements.length - 1) step(elements, i);
+              // pass current element as "this" context
+              stepcallback.apply(elements[index], [index, elements, delay]);
 
-        }, delay);
+              if (++i < length) step(index, elements);
 
-    }(this, 0));
+          }, delay);
 
-};
+      }(0, this));
+
+  };
+  
+}(jQuery));
