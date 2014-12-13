@@ -1,5 +1,5 @@
 /*!
- * jQuery Timeout Step Plugin - v 1.0 - 13/12/2014
+ * jQuery Step Plugin - v 1.0 - 13/12/2014
  * by Max G J Panas (m@maxpanas.com), http://maxpanas.com
  *
  * Copyright (c) 2014 Max G J Panas
@@ -27,7 +27,7 @@
       // equivalent to --> if (!timeout) timeout = 300;
       timeout = timeout || 300;
 
-      var length = elements.length;
+      var length = this.length;
 
       (function step(index, elements) {
 
@@ -38,7 +38,7 @@
               // pass current element as "this" context
               stepcallback.apply(elements[index], [index, elements, delay]);
 
-              if (++i < length) step(index, elements);
+              if (++index < length) step(index, elements);
 
           }, delay);
 
