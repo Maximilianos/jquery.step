@@ -31,7 +31,7 @@ You can then style the transition states for both the unstepped and stepped `li`
 
 
 Details
-======
+=======
 
 jQuery.step takes two parameters:
 

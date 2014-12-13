@@ -1,8 +1,45 @@
-<!DOCTYPE>
-<html>
+<!doctype html>
+<html lang="en_US">
 	<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<title>Step Js Fade In template</title>
-		<link rel="stylesheet" href="fade-in.stepjs.css">
+
+    <style>
+      h1 {
+        text-align: center;
+      }
+
+      .list {
+        margin: 40px auto;
+        padding: 0;
+        max-width: 560px;
+        text-align: center;
+      }
+
+      .list__item {
+        margin: 10px;
+        display: inline-block;
+        height: 100px;
+        width: 100px;
+        background: rgba(0,0,0, 0.7);
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+            -ms-transform: translateY(50px);
+                transform: translateY(50px);
+        -webkit-transition: 0.6s ease-out;
+                transition: 0.6s ease-out;
+      }
+
+      .list__item.list__item--stepped {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+                transform: translateY(0);
+      }
+    </style>
 	</head>
 
 	<body>
@@ -28,13 +65,19 @@
 			<li class="list__item"></li>
 			<li class="list__item"></li>
 			<li class="list__item"></li>
-			<li class="list__item"></li>
 		</ul>
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 
 		<script src="../../step.jquery.min.js"></script>
+    <script>
+      (function ($) {
+        $('.list__item').step(function () {
+          $(this).addClass('list__item--stepped');
+        }, 100);
+      }(jQuery));
+    </script>
 
 	</body>
 </html>

@@ -9,18 +9,13 @@
 /**
  * Example Use:
  *
- * Simple -- fade elements in on load:
- *   give elements you want to manipulate a common class, in this case: 'fade-in-onload'
+ * $('.list__item').step(function () {
+ *   $(this).addClass('list__item--stepped');
+ * }, 100);
  *
- *   include fade-in.stepjs.css in your stylesheet 
- *   <http://github.com/maximilianos/jquery.step/templates/fade-in/fade-in.stepjs.css>
- *
- *   include the following in your javascript:
- *
- *   $('.fade-in-onload').step(function () {
- *     $(this).addClass('stepped');
- *   }, 500);
- *
+ * Could be used to fade elements in on load.
+ * Check out the html in the "demo" folder for
+ * a simple working example
  *
  */
 
