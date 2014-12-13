@@ -39,19 +39,20 @@ jQuery.step takes two parameters:
   - `index`: the current index of the iteration
   - `elements`: the selected elements that we are stepping through
   - `delay`: the delay until the *next* iteration of the loop
-- the `timeout` parameter can either be a number that represents the delay in *milliseconds* between each iteration of the `stepcallback`, or a function that returns that number. The function version gets passed the following variables:
+- the `timeout` parameter can either be a simple number that represents the delay in **milliseconds** between each iteration of the `stepcallback`, or a function that returns that number. The function version gets passed the following variables:
   - `index`: the current index of the iteration
   - `elements`: the selected elements that we are stepping through
   
 A full example of the step function would start from the following:
 
-```
+```javascript
 $('[data-to-step]').step(
   function (index, elements, delay) {
     var me = $(this);
-    ...
+    // ... do something with {me}
   }, function (index, elements) {
-    ...
+    // ... do something to calculate delay
+    return delay; // some number in milliseconds
   }
 );
 ```
