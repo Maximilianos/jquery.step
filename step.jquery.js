@@ -1,8 +1,8 @@
 /*!
- * jQuery Step Plugin - v 1.0 - 13/12/2014
+ * jQuery Step Plugin - v 1.1 - 17/01/2015
  * by Max G J Panas (m@maxpanas.com), http://maxpanas.com
  *
- * Copyright (c) 2014 Max G J Panas
+ * Copyright (c) 2015 Max G J Panas
  * Dual licenced under MIT (http://opensource.org/licenses/MIT) and GPL (http://www.gnu.org/licenses/gpl.html) licences
  */
 
