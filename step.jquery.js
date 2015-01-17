@@ -21,29 +21,54 @@
 
 (function ($) {
   "use strict";
- 
-  $.fn.step = function (stepcallback, timeout) {
 
-      // equivalent to --> if (!timeout) timeout = 300;
-      timeout = timeout || 300;
+  var defaultOptions = {
+    timeout: 300,
+    startAt: 0,
+    endAt:   false,
+    onEnd:   false
+  };
 
-      var length = this.length;
+  $.fn.step = function (stepcallback, custom) {
+    var elements, options, timeout, startAt, endAt;
 
-      (function step(index, elements) {
+    elements = this;
 
-          var delay = typeof timeout == 'function' ? timeout(index, elements) : parseInt(timeout);
+    if (!!custom && custom.constructor === Object) {
+      options = $.extend(defaultOptions, custom);
+    } else {
+      options = defaultOptions;
+      options.timeout = custom;
+    }
 
-          setTimeout(function () {
+    timeout = (!options.timeout && 0 !== options.timeout) ? 300 : options.timeout;
+    startAt = !options.startAt ? 0 : options.startAt;
+    endAt   = !options.endAt ? elements.length : options.endAt;
 
-              // pass current element as "this" context
-              stepcallback.apply(elements[index], [index, elements, delay]);
+    if (startAt >= endAt) {
+      return;
+    }
 
-              if (++index < length) step(index, elements);
+    timeout = ('function' === typeof timeout) ? timeout : parseInt(timeout, 10);
 
-          }, delay);
+    (function step(index) {
 
-      }(0, this));
+      var delay = ('function' === typeof timeout) ? timeout(index, elements) : timeout;
+
+      setTimeout(function () {
+
+        stepcallback.apply(elements[index], [index, elements, delay]);
+
+        if (++index < endAt) {
+          step(index, elements);
+        } else if ('function' === typeof options.onEnd) {
+          options.onEnd(index, elements);
+        }
+
+      }, delay);
+
+    }(startAt));
 
   };
-  
+
 }(jQuery));
