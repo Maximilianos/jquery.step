@@ -46,7 +46,7 @@ jQuery.step takes two parameters:
     - a `function` that returns that number for every individual iteration. This function gets passed the following variables:
         - `index`: the current index of the iteration
         - `elements`: the selected elements that we are stepping through
-    - or an object containing custom options for the step function. This object can contain any of the following:
+    - or an `object` containing custom options for the step function. This object can contain any of the following:
         - `timeout` - accepts either a `number` or a `function` to return the delay between each iteration. 
         *(Default:&nbsp;`300`)*
         - `startAt` - a `number` indicating the index of the array of elements to begin from. 
