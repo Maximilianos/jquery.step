@@ -42,18 +42,18 @@ jQuery.step takes two parameters:
     - `elements`: the selected elements that we are stepping through
     - `delay`: the delay until the *next* iteration of the loop
 - the `custom` parameter is *optional* and can be one of three things:
-    - a simple `number` that represents the delay in **milliseconds** between each iteration of the `stepcallback`,
-    - a `function` that returns that number for every individual iteration. This function gets passed the following variables:
+    - a simple *number* that represents the delay in **milliseconds** between each iteration of the *stepcallback*,
+    - a *function* that returns that number for every individual iteration. This function gets passed the following variables:
         - `index`: the current index of the iteration
         - `elements`: the selected elements that we are stepping through
-    - or an `object` containing custom options for the step function. This object can contain any of the following:
-        - `timeout` - accepts either a `number` or a `function` to return the delay between each iteration. 
+    - or an *object* containing custom options for the step function. This object can contain any of the following:
+        - `timeout` - accepts either a *number* or a *function* to return the delay between each iteration. 
         *(Default:&nbsp;`300`)*
-        - `startAt` - a `number` indicating the index of the array of elements to begin from. 
+        - `startAt`: a *number* indicating the index of the array of elements to begin from. 
         *(Default:&nbsp;`0`)*
-        - `endAt`   - a `number` indicating the index of the array of elements to stop at. *(`false` indicates ending at the end of the array)* 
+        - `endAt`: a *number* indicating the index of the array of elements to stop at. *(`false`&nbsp;indicates ending at the end of the array)* 
         *(Default:&nbsp;`false`)*
-        - `onEnd`   - a `function` that runs once after the step function has run for the last time. This function takes the following variables:
+        - `onEnd`: a *function* that runs once after the step function has run for the last time. This function takes the following variables:
         *(Default:&nbsp;`false`)*
             - `index`: the current index of the iteration
             - `elements`: the selected elements that we are stepping through
