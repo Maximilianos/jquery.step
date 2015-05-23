@@ -1,0 +1,19 @@
+{
+  "name": "jquery.step",
+  "version": "1.0.0",
+  "description": "Like jQuery's builtin $().each but let's you set a customizable timeout between each \"step\" of the loop. Plus a couple of other things.",
+  "main": "step.jquery.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maximilianos/jquery.step.git"
+  },
+  "author": "Max GJ Panas <m@maxpanas.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Maximilianos/jquery.step/issues"
+  },
+  "homepage": "https://github.com/Maximilianos/jquery.step"
+}
