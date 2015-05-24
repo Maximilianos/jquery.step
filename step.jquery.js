@@ -1,4 +1,4 @@
-/*!
+/**
  * jQuery Step Plugin - v 1.1 - 17/01/2015
  * by Max G J Panas (m@maxpanas.com), http://maxpanas.com
  *
