@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Maximilianos/jquery.step/issues"
   },
-  "homepage": "https://github.com/Maximilianos/jquery.step"
+  "homepage": "https://github.com/Maximilianos/jquery.step",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-notify": "^2.2.0",
+    "gulp-uglify": "^1.2.0"
+  }
 }
