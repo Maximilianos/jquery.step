@@ -1,6 +1,6 @@
 {
   "name": "jquery.step",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Like jQuery's builtin $().each but let's you set a customizable timeout between each \"step\" of the loop. Plus a couple of other things.",
   "main": "step.jquery.js",
   "repository": {
