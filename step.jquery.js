@@ -18,8 +18,15 @@
  * a simple working example
  *
  */
-
-(function ($) {
+(function (factory) {
+  if (typeof exports === 'object') {
+    module.exports = factory(require('jquery'));
+  } else if (typeof define === 'function' && define.amd) {
+    define(['jquery'], factory);
+  } else {
+    factory(jQuery);
+  }
+}(function ($) {
   "use strict";
 
   var defaultOptions = {
@@ -29,16 +36,27 @@
     onEnd:   false
   };
 
-  $.fn.step = function (stepcallback, custom) {
-    var elements, options, timeout, startAt, endAt;
+  /**
+   * Steps through an array
+   * running a callback with
+   * a custom delay between
+   * each step
+   *
+   * @param elements
+   * @param stepcallback
+   * @param delayOrOptions
+   */
+  function stepper(elements, stepcallback, delayOrOptions) {
+    var options;
+    var timeout;
+    var startAt;
+    var endAt;
 
-    elements = this;
-
-    if (!!custom && custom.constructor === Object) {
-      options = $.extend(defaultOptions, custom);
+    if (!!delayOrOptions && delayOrOptions.constructor === Object) {
+      options = $.extend(defaultOptions, delayOrOptions);
     } else {
       options = defaultOptions;
-      options.timeout = custom;
+      options.timeout = delayOrOptions;
     }
 
     timeout = (!options.timeout && 0 !== options.timeout) ? 300 : options.timeout;
@@ -52,11 +70,9 @@
     timeout = ('function' === typeof timeout) ? timeout : parseInt(timeout, 10);
 
     (function step(index) {
-
       var delay = ('function' === typeof timeout) ? timeout(index, elements) : timeout;
 
       setTimeout(function () {
-
         stepcallback.apply(elements[index], [index, elements, delay]);
 
         if (++index < endAt) {
@@ -64,11 +80,15 @@
         } else if ('function' === typeof options.onEnd) {
           options.onEnd(index, elements);
         }
-
       }, delay);
-
     }(startAt));
+  }
 
+  // extend jQuery prototype
+  $.fn.step = function (stepcallback, custom) {
+    stepper(this, stepcallback, custom);
   };
 
-}(jQuery));
+
+  return stepper;
+}));
