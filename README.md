@@ -68,7 +68,7 @@ Download the repo and check out the files in the *demo* folder for the above exa
 # Usage
 
 You can include the minified script into your project directly or you 
-can install this script via [npm](http://npmjs.com) or [bower](http://bower.io).
+can install this script via [npm](https://www.npmjs.com/package/jquery.step) or [bower](http://bower.io/search/?q=jquery.step).
 
 ```
 npm install jquery.step --save
