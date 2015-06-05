@@ -5,7 +5,7 @@ var notify = require('gulp-notify');
 
 
 gulp.task('default', function () {
-  return gulp.src('step.jquery.js')
+  return gulp.src('jquery.step.js')
     .pipe(uglify())
     .pipe(gulp.dest('dist'))
     .pipe(notify({

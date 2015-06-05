@@ -45,8 +45,12 @@
    * @param elements
    * @param stepcallback
    * @param delayOrOptions
+   *
+   * @returns {*}
    */
-  function stepper(elements, stepcallback, delayOrOptions) {
+  function Stepper(elements, stepcallback, delayOrOptions) {
+    var self = this;
+
     var options;
     var timeout;
     var startAt;
@@ -72,7 +76,11 @@
     (function step(index) {
       var delay = ('function' === typeof timeout) ? timeout(index, elements) : timeout;
 
-      setTimeout(function () {
+      self.timeout = setTimeout(function () {
+        if (self.stop) {
+          return;
+        }
+
         stepcallback.apply(elements[index], [index, elements, delay]);
 
         if (++index < endAt) {
@@ -82,13 +90,28 @@
         }
       }, delay);
     }(startAt));
+
+    /**
+     * Add api to stop
+     * stepping
+     *
+     * @returns {*}
+     */
+    elements.stopStep = function () {
+      self.stop = true;
+      clearTimeout(self.timeout);
+
+      return elements;
+    };
+
+    return elements;
   }
 
   // extend jQuery prototype
   $.fn.step = function (stepcallback, custom) {
-    stepper(this, stepcallback, custom);
+    return new Stepper(this, stepcallback, custom);
   };
 
 
-  return stepper;
+  return Stepper;
 }));
