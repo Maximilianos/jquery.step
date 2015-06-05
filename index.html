@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en_US">
+	<head>
+    <meta charset="utf8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Step Js Fade In template</title>
+
+    <style class="code">
+	    @keyframes slide-up {
+		    from {
+			    opacity: 0;
+			    -webkit-transform: translateY(50px);
+			    -ms-transform: translateY(50px);
+			    transform: translateY(50px);
+		    }
+	    }
+
+	    @keyframes twisting-nether {
+		    to {
+			    opacity: 0;
+			    -webkit-transform: scale(0);
+			    -ms-transform: scale(0);
+			    transform: scale(0);
+		    }
+	    }
+
+	    html,
+	    body {
+		    margin: 0;
+		    padding: 0;
+		    min-height: 100%;
+	    }
+
+	    body {
+		    position: relative;
+		    padding: 1px 0 70px;
+		    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+		    background: radial-gradient(circle at top center, skyblue, mediumslateblue);
+	    }
+
+      .content {
+	      box-sizing: border-box;
+        margin: 0 auto;
+	      padding: 0 40px;
+	      max-width: 640px;
+	      text-align: center;
+      }
+
+      @media all and (max-width: 400px) {
+        .content {
+		      padding: 0 10px;
+	      }
+      }
+
+      button {
+	      border: 0;
+	      border-radius: 5px;
+	      padding: 10px 30px;
+	      color: #fff;
+	      background: rgba(0, 0, 0, 0.5);
+	      cursor: pointer;
+	      -webkit-transition: 0.15s ease-in;
+	              transition: 0.15s ease-in;
+      }
+
+      button:hover,
+      button:focus {
+	      background: rgba(0,0,0,0.8);
+      }
+
+      .list {
+        margin: 40px auto;
+        padding: 0 40px;
+        max-width: 560px;
+        text-align: center;
+      }
+
+	    @media all and (max-width: 400px) {
+		    .list {
+			    padding: 0;
+		    }
+	    }
+
+      .list__item {
+        margin: 10px;
+        display: inline-block;
+        height: 100px;
+        width: 100px;
+        background: rgba(0,0,0, 0.7);
+	      -webkit-animation: twisting-nether 0.3s cubic-bezier(.41,.01,.87,-0.73) forwards;
+	              animation: twisting-nether 0.3s cubic-bezier(.41,.01,.87,-0.73) forwards;
+      }
+
+      .list__item--stepped {
+	      -webkit-animation: slide-up 0.6s ease-out forwards;
+	              animation: slide-up 0.6s ease-out forwards;
+      }
+
+	    @media all and (max-width: 610px) {
+		    .list__item:nth-child(12) ~ .list__item {
+			    display: none;
+		    }
+	    }
+
+	    @media all and (max-width: 480px) {
+		    .list__item:nth-child(6) ~ .list__item {
+			    display: none;
+		    }
+	    }
+
+	    .github-ribbon {
+		    position: fixed;
+		    top: 0;
+		    right: 0;
+		    border: 0;
+	    }
+
+	    .code {
+		    box-sizing: border-box;
+		    display: block;
+		    margin: 50px auto;
+		    padding: 20px 40px;
+		    max-width: 640px;
+		    white-space: pre;
+		    background-color: white;
+		    overflow: auto;
+	    }
+
+	    @media all and (max-width: 400px) {
+		    .code {
+			    padding: 10px 20px;
+		    }
+	    }
+
+	    .copyright {
+		    position: absolute;
+		    bottom: 20px;
+		    left: 0;
+		    width: 100%;
+		    text-align: center;
+		    color: white;
+	    }
+
+	    .me {
+		    border-bottom: 1px solid rgba(255,255,255,0);
+		    color: floralwhite;
+		    text-decoration: none;
+		    -webkit-transition: 0.15s ease-in;
+		            transition: 0.15s ease-in;
+	    }
+
+	    .me:hover {
+		    border-bottom-color: white;
+	    }
+    </style>
+	</head>
+
+	<body>
+
+		<header class="content">
+			<h1>jQuery.step - Fade-in Demo</h1>
+			<h2>Just one of the things you can easily do with jQuery.step:</h2>
+		</header>
+
+		<ul class="list">
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+			<li class="list__item"></li>
+		</ul>
+
+		<p class="content">
+			<button type="button">
+				Rerun!
+			</button>
+		</p>
+
+		<footer>
+			<a href="https://github.com/Maximilianos/jquery.step">
+				<img class="github-ribbon"
+				     src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+				     alt="Fork me on GitHub"
+				     data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+			</a>
+
+			<div class="copyright">
+				<p>
+					<a class="github-button" href="https://github.com/Maximilianos/jquery.step/archive/master.zip" data-icon="octicon-cloud-download" aria-label="Download Maximilianos/jquery.step on GitHub">Download</a>
+					<a class="github-button" href="https://github.com/Maximilianos/jquery.step" data-icon="octicon-star" data-count-href="/Maximilianos/jquery.step/stargazers" data-count-api="/repos/Maximilianos/jquery.step#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star Maximilianos/jquery.step on GitHub">Star</a>
+				</p>
+				Made for the Web by
+				<a class="me" href="http://maxpanas.com/">
+					Max GJ Panas
+				</a>
+			</div>
+		</footer>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="js/jquery.step.js"></script>
+    <script class="code">
+      /**
+       * This is the actual js code that
+       * powers the demo above
+       *
+       */
+      (function ($) {
+
+	      var listItems = $('.list__item');
+	      var stepClass = 'list__item--stepped';
+	      var stepper;
+
+	      /**
+	       * Use jquery.step to add the
+	       * stepClass to the listItems
+	       * at 100ms steps
+	       *
+	       */
+	      function startStepping() {
+		      stepper = listItems.step(function () {
+			      $(this).addClass(stepClass);
+		      }, 100);
+	      }
+
+	      // Button to allow rerun
+	      $('button').click(function () {
+		      stepper.stopStep();
+		      listItems.removeClass(stepClass);
+
+
+		      setTimeout(function () {
+			      stepper.stopStep();
+			      startStepping();
+		      }, 1000);
+	      });
+
+	      startStepping();
+
+      }(jQuery));
+    </script>
+
+		<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+	</body>
+</html>
