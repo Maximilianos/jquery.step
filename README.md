@@ -63,7 +63,8 @@ var options = {
 $('li').step(doEveryStep, options);
 ```
 
-Download the repo and check out the files in the *demo* folder for the above example in working form.
+You can check out the [jquery.step mini demo page](http://maximilianos.github.io/jquery.step/) for a simple working
+example.
 
 # Usage
 
