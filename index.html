@@ -4,157 +4,8 @@
     <meta charset="utf8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 		<title>Step Js Fade In template</title>
-
-    <style class="code">
-	    @keyframes slide-up {
-		    from {
-			    opacity: 0;
-			    -webkit-transform: translateY(50px);
-			    -ms-transform: translateY(50px);
-			    transform: translateY(50px);
-		    }
-	    }
-
-	    @keyframes twisting-nether {
-		    to {
-			    opacity: 0;
-			    -webkit-transform: scale(0);
-			    -ms-transform: scale(0);
-			    transform: scale(0);
-		    }
-	    }
-
-	    html,
-	    body {
-		    margin: 0;
-		    padding: 0;
-		    min-height: 100%;
-	    }
-
-	    body {
-		    position: relative;
-		    padding: 1px 0 70px;
-		    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
-		    background: radial-gradient(circle at top center, skyblue, mediumslateblue);
-	    }
-
-      .content {
-	      box-sizing: border-box;
-        margin: 0 auto;
-	      padding: 0 40px;
-	      max-width: 640px;
-	      text-align: center;
-      }
-
-      @media all and (max-width: 400px) {
-        .content {
-		      padding: 0 10px;
-	      }
-      }
-
-      button {
-	      border: 0;
-	      border-radius: 5px;
-	      padding: 10px 30px;
-	      color: #fff;
-	      background: rgba(0, 0, 0, 0.5);
-	      cursor: pointer;
-	      -webkit-transition: 0.15s ease-in;
-	              transition: 0.15s ease-in;
-      }
-
-      button:hover,
-      button:focus {
-	      background: rgba(0,0,0,0.8);
-      }
-
-      .list {
-        margin: 40px auto;
-        padding: 0 40px;
-        max-width: 560px;
-        text-align: center;
-      }
-
-	    @media all and (max-width: 400px) {
-		    .list {
-			    padding: 0;
-		    }
-	    }
-
-      .list__item {
-        margin: 10px;
-        display: inline-block;
-        height: 100px;
-        width: 100px;
-        background: rgba(0,0,0, 0.7);
-	      -webkit-animation: twisting-nether 0.3s cubic-bezier(.41,.01,.87,-0.73) forwards;
-	              animation: twisting-nether 0.3s cubic-bezier(.41,.01,.87,-0.73) forwards;
-      }
-
-      .list__item--stepped {
-	      -webkit-animation: slide-up 0.6s ease-out forwards;
-	              animation: slide-up 0.6s ease-out forwards;
-      }
-
-	    @media all and (max-width: 610px) {
-		    .list__item:nth-child(12) ~ .list__item {
-			    display: none;
-		    }
-	    }
-
-	    @media all and (max-width: 480px) {
-		    .list__item:nth-child(6) ~ .list__item {
-			    display: none;
-		    }
-	    }
-
-	    .github-ribbon {
-		    position: fixed;
-		    top: 0;
-		    right: 0;
-		    border: 0;
-	    }
-
-	    .code {
-		    box-sizing: border-box;
-		    display: block;
-		    margin: 50px auto;
-		    padding: 20px 40px;
-		    max-width: 640px;
-		    white-space: pre;
-		    background-color: white;
-		    overflow: auto;
-	    }
-
-	    @media all and (max-width: 400px) {
-		    .code {
-			    padding: 10px 20px;
-		    }
-	    }
-
-	    .copyright {
-		    position: absolute;
-		    bottom: 20px;
-		    left: 0;
-		    width: 100%;
-		    text-align: center;
-		    color: white;
-	    }
-
-	    .me {
-		    border-bottom: 1px solid rgba(255,255,255,0);
-		    color: floralwhite;
-		    text-decoration: none;
-		    -webkit-transition: 0.15s ease-in;
-		            transition: 0.15s ease-in;
-	    }
-
-	    .me:hover {
-		    border-bottom-color: white;
-	    }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 	</head>
 
 	<body>
@@ -210,7 +61,7 @@
 		</footer>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script src="js/jquery.step.js"></script>
+		<script src="js/jquery.step.min.js"></script>
     <script class="code">
       /**
        * This is the actual js code that
